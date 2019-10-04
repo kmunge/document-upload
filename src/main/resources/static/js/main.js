@@ -2,6 +2,8 @@
 
 var singleUploadForm = document.querySelector('#singleUploadForm');
 var singleFileUploadInput = document.querySelector('#singleFileUploadInput');
+var singleFileUploadInputTwo = document.querySelector('#singleFileUploadInputTwo');
+
 var singleFileUploadError = document.querySelector('#singleFileUploadError');
 var singleFileUploadSuccess = document.querySelector('#singleFileUploadSuccess');
 
@@ -64,11 +66,14 @@ function uploadMultipleFiles(files) {
 
 singleUploadForm.addEventListener('submit', function(event){
     var files = singleFileUploadInput.files;
+    var filesTwo = singleFileUploadInputTwo.files;
+
     if(files.length === 0) {
         singleFileUploadError.innerHTML = "Please select a file";
         singleFileUploadError.style.display = "block";
     }
     uploadSingleFile(files[0]);
+    uploadSingleFile(filesTwo[0]);
     event.preventDefault();
 }, true);
 
